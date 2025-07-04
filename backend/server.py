@@ -193,7 +193,7 @@ async def get_expired_medicines():
     medicines = await db.medicines.find().to_list(1000)
     expired_medicines = [
         Medicine(**medicine) for medicine in medicines 
-        if medicine["expiry_date"] <= today
+        if medicine.get("expiry_date") and medicine["expiry_date"].date() <= datetime.utcnow().date()
     ]
     return expired_medicines
 
