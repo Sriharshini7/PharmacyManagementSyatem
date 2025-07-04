@@ -24,7 +24,7 @@ class PharmacyAPITest(unittest.TestCase):
             "dosage": "10mg",
             "form": "tablet",
             "batch_number": f"BATCH-{datetime.now().strftime('%Y%m%d%H%M%S')}",
-            "expiry_date": datetime.combine(date.today() + timedelta(days=365), datetime.min.time()).isoformat(),
+            "expiry_date": (datetime.utcnow() + timedelta(days=365)).isoformat(),
             "purchase_price": 5.0,
             "selling_price": 10.0,
             "stock_quantity": 100,
