@@ -36,7 +36,7 @@ class Medicine(BaseModel):
     dosage: str
     form: str  # tablet, capsule, syrup, etc.
     batch_number: str
-    expiry_date: date
+    expiry_date: datetime
     purchase_price: float
     selling_price: float
     stock_quantity: int
