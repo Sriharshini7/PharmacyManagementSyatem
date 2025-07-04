@@ -66,7 +66,7 @@ class MedicineUpdate(BaseModel):
     dosage: Optional[str] = None
     form: Optional[str] = None
     batch_number: Optional[str] = None
-    expiry_date: Optional[date] = None
+    expiry_date: Optional[datetime] = None
     purchase_price: Optional[float] = None
     selling_price: Optional[float] = None
     stock_quantity: Optional[int] = None
