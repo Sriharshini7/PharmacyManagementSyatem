@@ -330,7 +330,7 @@ class PharmacyAPITest(unittest.TestCase):
         
         # Create a medicine with expired date
         expired_medicine_data = self.medicine_data.copy()
-        expired_medicine_data["expiry_date"] = (date.today() - timedelta(days=1)).isoformat()
+        expired_medicine_data["expiry_date"] = datetime.combine(date.today() - timedelta(days=1), datetime.min.time()).isoformat()
         
         print("Creating medicine with expired date...")
         response = requests.post(f"{API_URL}/medicines", json=expired_medicine_data)
