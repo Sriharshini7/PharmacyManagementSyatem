@@ -189,7 +189,7 @@ async def get_low_stock_medicines():
 
 @api_router.get("/medicines/expired")
 async def get_expired_medicines():
-    today = date.today()
+    today = datetime.utcnow().date()
     medicines = await db.medicines.find().to_list(1000)
     expired_medicines = [
         Medicine(**medicine) for medicine in medicines 
